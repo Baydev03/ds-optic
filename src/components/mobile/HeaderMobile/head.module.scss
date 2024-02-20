@@ -1,0 +1,133 @@
+@import '/src/scss/variables';
+
+.head{
+  height: 50px;
+  background: $app-main-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  position: relative;
+
+  &-left{
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    display: flex;
+
+    img{
+      width: 20px;
+      height: 15px;
+      margin-right: 30px;
+      cursor: pointer;
+    }
+
+    h3{
+      margin: 0;
+      color: rgba(255, 255, 255, 0.90);
+      font-size: 20px;
+      font-family: $font-family-poppins;
+      font-weight: 600;
+      line-height: 24.167px;
+    }
+  }
+
+  &-right{
+    display: flex;
+    align-items: center;
+
+    img{
+      cursor: pointer;
+    }
+
+    img:nth-child(1){
+      width: 25.375px;
+      height: 25.352px;
+      flex-shrink: 0;
+    }
+
+    img:nth-child(2){
+      margin-left: 22px;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+  }
+
+  &-prod{
+    display: flex;
+    align-items: center;
+
+    img{
+      cursor: pointer;
+    }
+
+    .searcher{
+      width: 23px;
+      height: 23px;
+    }
+
+    .scan{
+      margin-left: 30px;
+      width: 21px;
+      height: 21px;
+    }
+  }
+
+  &-search{
+    width: 290px;
+    left: 75px;
+    height: 30px;
+    bottom: 5px;
+    position: absolute;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+
+    @media screen and (max-width:430px) {
+      width: 270px;
+    } 
+
+    @media screen and (max-width:400px) {
+      width: 250px;
+    } 
+
+    @media screen and (max-width:385px) {
+      width: 230px;
+    }
+
+    input{
+      background: none;
+      border: none;
+      outline: none;
+      width: 90%;
+      color: #fff;
+    }
+
+    span{
+      svg{
+        color: #FFFFFF80;
+      }
+    }
+  }
+
+  &-search-closer{
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    cursor: pointer;
+    
+    svg{
+      transform: rotate(135deg);
+      font-size: 21px;
+    }
+  }
+
+  &-search-placer{
+    position: absolute;
+    left: 5px;
+    bottom: 2px;
+
+    svg{
+      font-size: 25px;
+    }
+  }
+}

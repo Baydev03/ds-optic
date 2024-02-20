@@ -1,0 +1,128 @@
+@import '/src/scss/variables';
+
+.side{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.50);  
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+  z-index: 7;
+
+  &-wrapper{
+    width: 340px;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    left: -100%;
+    transition: .3s;
+  }
+
+  &-upper{
+    padding: 20px;
+    position: relative;
+    background: linear-gradient(39deg, #015589 0%, #034670 33.33%, #1976AF 66.67%, #0275BC 100%);
+
+    div{
+      img{
+        width: 55px;
+        height: 55px;
+        margin-bottom: 10px;
+      }
+
+      h5{
+        margin: 0;
+        color: #FFF;
+        font-size: 15px;
+        font-family: $font-family-poppins;
+        font-weight: 600;
+        line-height: 24.167px;
+      }
+
+      p{
+        margin: 0;
+        color: #FFF;
+        font-size: 13px;
+        font-family: $font-family-poppins;
+        line-height: 24.167px;
+      }
+    }
+  }
+
+  &-comment{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    width: 26px;
+    height: 26.563px;
+  }
+
+  &-lower{
+    text-align: center;
+
+    div{
+      label{
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        width: 100%;
+        height: 54px;
+        cursor: pointer;
+
+        svg{
+          margin-right: 30px;
+          width: 25px;
+          height: 25px;
+          color: #B8B8B8;
+        }
+
+        color: #B8B8B8;
+        font-size: 16px;
+        font-family: $font-family-poppins;
+        font-weight: 600;
+        line-height: 24.167px;
+      }
+
+      .active_link{
+        background: #FFF;
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+        color: #015589;
+
+        svg{
+          color: #015589;
+        }
+      }
+    }
+  }
+
+  &-create-btn{
+    margin-bottom: 20px;
+    width: 301px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: $app-main-color;
+    border: none;
+    outline: none;
+    color: #FFF;
+    font-size: 16px;
+    font-family: $font-family-poppins;
+    font-weight: 600;
+    line-height: 24.167px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+}
+
+#active_bar{
+  opacity: 1;
+  pointer-events: all;
+
+  >div{
+    left: 0;
+  }
+}

@@ -1,0 +1,123 @@
+@import '/src/scss/variables';
+
+.swiper{
+  margin-top: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  >div{
+    margin: 0;
+  }
+
+  &-head{
+    text-align: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #B9B9B9;
+
+    p{
+      margin: 0;
+      color: #000;
+      font-size: 14px;
+      font-family: $font-family-poppins;
+      font-weight: 500;
+      line-height: 24.167px;
+    }
+
+    span{
+      color: #015589;
+      font-size: 17px;
+      font-family: $font-family-poppins;
+      font-weight: 500;
+      line-height: 24.167px;
+    }
+  }
+
+  &-body{
+    padding: 30px;
+  }
+
+  &-box{
+    margin-bottom: 8px;
+
+    span{
+      color: rgba(0, 0, 0, 0.70);
+      font-size: 13px;
+      font-family: $font-family-poppins;
+      line-height: 24.167px;
+    }
+
+    p{
+      margin: 0;
+      color: #000;
+      font-size: 13px;
+      font-family: $font-family-poppins;
+      line-height: 24.167px;
+    }
+  }
+
+  &-boxes{
+    display: flex;
+
+    div{
+      span{
+        color: rgba(0, 0, 0, 0.70);
+        font-size: 13px;
+        font-family: $font-family-poppins;
+        line-height: 24.167px;
+      }
+
+      p{
+        margin: 0;
+        color: #000;
+        font-size: 13px;
+        font-family: $font-family-poppins;
+        line-height: 24.167px;
+      }
+    }
+
+    div:nth-child(1){
+      width: 45%;
+    }
+  }
+
+  &-list{
+    margin-top: 6px;
+
+    p{
+      margin: 0 0 6px 0;
+      display: flex;
+      justify-content: space-between;
+      color: #000;
+      font-size: 14px;
+      font-family: $font-family-poppins;
+      line-height: 24.167px;
+    }
+
+    span{
+      color: #000;
+      font-size: 14px;
+      font-family: $font-family-poppins;
+      line-height: 24.167px;
+    }
+  }
+
+  .swiper-button-prev{
+    top: 9px;
+    left: 20px;
+    color: #015589;
+
+    &::after{
+      font-size: 25px;
+    }
+  }
+
+  .swiper-button-next{
+    right: 20px;
+    top: 9px;
+    color: #015589;
+
+    &::after{
+      font-size: 25px;
+    }
+  }
+}

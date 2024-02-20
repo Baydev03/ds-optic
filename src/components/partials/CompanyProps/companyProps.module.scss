@@ -1,0 +1,198 @@
+@import '/src/scss/variables';
+
+.props{
+  padding: 40px 60px;
+  width: 800px;
+
+  &-org{
+    input{
+      width: 100%;
+      height: 49px;
+      background: #FFFFFF;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      outline: none;
+      padding: 0 20px;
+      padding-top: 2px;
+      font-size: 18px;
+
+      &::placeholder{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        color: rgba(179, 179, 179, 0.7);
+      }
+    }
+  }
+
+  &-full-input{
+    margin-top: 23px;
+
+    h3{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 15px;
+      color: rgba(51, 66, 91, 0.8);
+      margin-bottom: 7px;
+    }
+
+    input{
+      width: 100%;
+      height: 39px;
+      background: #FFFFFF;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      padding: 0 15px;
+      outline: none;
+      
+      &::placeholder{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        color: rgba(179, 179, 179, 0.7);
+      }
+    }
+  }
+
+  &-list{
+    margin-top: 20px;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: rgba(51, 66, 91, 0.8);
+      margin-bottom: 5px;
+
+      span{
+        cursor: pointer;
+        color: #4183C4;
+      }
+    }
+    
+    div{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      input{
+        width: 333.02px;
+        height: 39.27px;
+        background: #FFFFFF;
+        border: 1px solid rgba(34, 36, 38, 0.15);
+        border-radius: 4px;
+        padding: 0 15px;
+        outline: none;
+        font-size: 14px;
+
+        &::placeholder{
+          font-family: $font-family-poppins;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 21px;
+          color: rgba(179, 179, 179, 0.7);
+        }
+      }
+    }
+  }
+
+  &-other{
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 49%;
+      width: 100%;
+      height: 1px;
+      background: rgb(204, 204, 204);
+    }
+
+    h3{
+      margin: 0;
+      position: relative;
+      text-align: center;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.85);
+      background: #fff;
+      padding: 0 10px;
+      display: inline;
+    }
+  }
+
+  &-payer{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+    width: fit-content;
+
+    p{
+      margin: 0 0 0 10px;  
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: rgba(51, 66, 91, 0.8);
+    }
+  }
+
+  &-alert{
+    margin-top: 22px;
+    height: 47.94px;
+    background: #F8F8F9;
+    box-shadow: inset 0px 0px 0px 1px rgba(34, 36, 38, 0.22);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+
+    p{
+      margin: 0 0 0 20px;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: rgba(0, 0, 0, 0.7395);
+    }
+  }
+
+  &-saver{
+    margin-top: 52px;
+    width: 137.65px;
+    height: 44.3px;
+    background: $app-main-color;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: $font-family-poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;
+  }
+}

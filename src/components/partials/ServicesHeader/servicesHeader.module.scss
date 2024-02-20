@@ -1,0 +1,90 @@
+@import '/src/scss/variables';
+
+.services{
+  &-list{
+    display: flex;
+    padding: 10px;
+
+    &__childOne{
+      width: 141px;
+      height: 52px;
+      background: #FAFAFA;
+      border: 1px solid #ECECEC;
+      border-radius: 4px;
+      padding-top: 6px;
+      padding-left: 10px;
+      cursor: pointer;
+
+      p{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color: #000000;
+        margin: 0;
+      }
+
+      span{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color: #000000;
+        cursor: pointer;
+      }
+    }
+
+    &__child{
+      width: 141px;
+      height: 52px;
+      background: #FAFAFA;
+      border: 1px solid #ECECEC;
+      border-radius: 4px;
+      margin-left: 10px;
+      padding: 5px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      p{
+        margin: 0;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 11px;
+        color: #000000;
+      }
+
+      label{
+        display: flex;
+        justify-content: space-between;
+        height: 20px;
+
+        input{
+          width: 70%;
+          background: none;
+          outline: none;
+          border: none;
+          font-size: 11px;
+
+          &::placeholder{
+            font-family: $font-family-poppins;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 11px;
+            color: #ABABAB;
+          }
+        }
+
+        button{
+          background: none;
+          width: 20px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

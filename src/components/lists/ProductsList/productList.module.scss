@@ -1,0 +1,179 @@
+@import '/src/scss/variables';
+
+%text-styles {
+  font-family: $font-family-roboto;
+  color: #33425B;
+  font-weight: 400;
+  font-size: 10.4px;
+  line-height: 12px;
+  text-decoration-line: underline;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+%header-block-styles {
+  padding-left: 8px;
+  border-right: 1px solid #F2F2F2;
+  display: flex;
+  align-items: center;
+}
+
+.table{
+
+  &-head{
+    display: flex;
+    height: 50px;
+
+    &-checkbox{
+      width: 46px;
+      border-right: 1px solid #F2F2F2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span{
+        width: 12.99px;
+        height: 12.99px;
+        border: 1px solid #767676;
+        border-radius: 2.5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-item{
+    display: flex;
+    height: 50px;
+    transition: .3s;
+    border-bottom: 1px solid #F2F2F2;
+
+    &:hover{
+      background: rgb(245, 245, 245);
+    }
+  }
+
+  &-naming{
+    width: 320px;
+    @extend %header-block-styles; 
+    transition: .3s;
+
+    &:hover{
+      background: rgb(225, 225, 225);
+    }
+
+    span{
+      @extend %text-styles
+    }
+
+    p{
+      font-family: $font-family-roboto;
+      font-size: 13px;
+      font-weight: 400;
+      margin: 0;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+
+      svg{
+        font-size: 30px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  #no-hover{
+    &:hover{
+      background: none;
+    }
+  }
+
+  #item-naming{
+    cursor: pointer;
+
+    p {
+      display: flex;
+      gap: 10px;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &-code{
+    width: 85px;
+    font-size: 10px;
+
+    @extend %header-block-styles; 
+
+    span{
+      @extend %text-styles
+    }
+  }
+
+  &-article{
+    width: 150px;
+    font-size: 10px;
+
+    @extend %header-block-styles; 
+
+    span{
+      @extend %text-styles
+    }
+  }
+
+  &-changer{
+    width: 100px;
+    font-size: 10px;
+
+    @extend %header-block-styles; 
+
+    span{
+      @extend %text-styles
+    }
+  }
+
+  &-price{
+    font-size: 10px;
+    width: 150px;
+    @extend %header-block-styles; 
+
+    span{
+      @extend %text-styles
+    }
+  }
+
+  &-discount{
+    width: 110px;
+    font-size: 10px;
+
+    @extend %header-block-styles; 
+
+    span{
+      @extend %text-styles
+    }
+  }
+
+  &-store{
+    width: 110px;
+    font-size: 10px;
+
+    @extend %header-block-styles; 
+
+    span{
+      @extend %text-styles
+    }
+  }
+
+  &-rest{
+    font-size: 10px;
+
+    flex: 1;
+    @extend %header-block-styles; 
+
+    span{
+      @extend %text-styles
+    }
+  }
+}

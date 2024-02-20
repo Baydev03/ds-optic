@@ -1,0 +1,96 @@
+@import '/src/scss/variables';
+
+.company{
+  width: 800px;
+  padding: 10px 63px 63px 63px;
+
+  @media screen and (max-width: 1050px) {
+    width: 100%;
+  }
+
+  &-input{
+    margin-top: 20px;
+
+    p{
+      margin: 0 0 7px 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      color: rgba(51, 66, 91, 0.8);
+
+      span{
+        color: #4183C4;
+        cursor: pointer;
+      }
+    }
+
+    input{
+      width: 100%;
+      height: 38px;
+      background: #FFFFFF;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      padding: 0 15px;
+      outline: none;
+    }
+  }
+
+  &-country{
+    margin-top: 20px;
+
+    p{
+      margin: 0 0 7px 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      color: rgba(51, 66, 91, 0.8);
+    }
+
+    div{
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15px;
+
+      span{
+        img{
+          width: 16px;
+          height: 11px;
+        }
+      }
+
+      input{
+        width: 98%;
+        border: none;
+
+        height: 38px;
+        background: #FFFFFF;
+        padding: 0 15px;
+        outline: none;
+      }
+    }
+  }
+
+  &-saver{
+    margin-top: 21px;
+    width: 137.66px;
+    height: 44.32px;
+    background: $app-main-color;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-family: $font-family-poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+}

@@ -1,0 +1,110 @@
+@import '/src/scss/variables';
+
+.auth{
+  padding-top: 200px;
+  background: none;
+  height: 100vh;
+  background: $app-main-color !important;
+  text-align: center;
+
+  >img{
+    width: 230px;
+  }
+
+  &-body{
+    width: 370px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+    >h5{
+      margin: 0;
+      color: #FFF;
+      font-size: 26px;
+      font-family: $font-family-poppins;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  &-form{
+    text-align: center;
+    margin-top: 60px;
+
+    label{
+      margin-top: 45px;
+      width: 100%;
+      height: 35px;
+      display: flex;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+
+      input{
+        width: 100%;
+        background: none;
+        color: #fff;
+        border: none;
+        outline: none;
+        color: #FFF;
+        font-size: 16px;
+        font-family: $font-family-poppins;
+        font-weight: 500;
+
+        &:focus ~ span,
+        &:active ~ span,
+        &:not(:valid) ~ span
+        {
+          top: -35px;
+        }
+      }
+
+      .valid ~ span{
+        top: -35px;
+      }
+
+      span{
+        position: absolute;
+        transition: .3s;
+        color: rgba(255, 255, 255, 0.70);
+        font-size: 20px;
+        font-family: $font-family-poppins;
+        font-weight: 500;
+      }
+
+      button{
+        background: none;
+        color: #fff;
+        cursor: pointer;
+        outline: none;
+        font-size: 20px;
+        border: none;
+      } 
+    }
+
+
+    >button{
+      width: 335px;
+      height: 43px;
+      flex-shrink: 0;
+      margin-top: 40px;
+      border-radius: 10px;
+      background: #457FA3;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.70);
+      font-size: 14px;
+      font-family: $font-family-poppins;
+      font-weight: 500;
+      line-height: 24.167px;
+    }
+  }
+
+  &-forget{
+    color: #FFF;
+    font-size: 17px;
+    font-family: $font-family-poppins;
+    font-weight: 500;
+    display: inline-block;
+    cursor: pointer;
+  }
+}

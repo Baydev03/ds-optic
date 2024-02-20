@@ -1,0 +1,54 @@
+@import '/src/scss/variables';
+
+.single{
+  &-head{
+    display: flex;
+    justify-content: space-between;
+    height: 47px;
+    background: #FFF;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+
+    button{
+      width: 50%;
+      border: none;
+      outline: none;
+      background: none;
+      cursor: pointer;
+      color: #000;
+      font-size: 15px;
+      font-family: $font-family-poppins;
+      font-weight: 500;
+      line-height: 24.167px;
+    }
+
+    .active{
+      color: #015589;
+      border-bottom: 2px solid #015589;
+    }
+  }
+  
+  &-child{
+    border-bottom: 1px solid #BCBCBC;
+    padding: 0 17px 0 30px;
+    cursor: pointer;
+
+    label{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 65px;
+
+      span{
+        color: #000;
+        font-size: 18px;
+        font-family: $font-family-poppins;
+        font-weight: 500;
+        line-height: 24.167px;
+      }
+
+      svg{
+        font-size: 23px;
+      }
+    }
+  }
+}

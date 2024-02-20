@@ -1,0 +1,460 @@
+@import '/src/scss/variables';
+
+.edit{
+  &-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 20px;
+    border-width: 1px 0px;
+    border-style: solid;
+    border-color: rgba(34, 36, 38, 0.15);
+
+    div:nth-child(1){
+      display: flex;
+      align-items: center;
+
+      button:nth-child(1){
+        width: 143.89px;
+        height: 39.8px;
+        background: $app-main-color;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-family: $font-family-roboto;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #FFFFFF;
+        margin-right: 19px;
+      }
+
+      button:nth-child(2){
+        width: 38.52px;
+        height: 39.8px;
+        background: rgba(255, 255, 255, 0.002);
+        box-shadow: inset 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: gray;
+      }
+    }
+
+    div:nth-child(2){
+      display: flex;
+      button:nth-child(1){
+        width: 96.8px;
+        height: 39.8px;
+        background: rgba(255, 255, 255, 0.002);
+        box-shadow: inset 0px 0px 0px 1px #000000;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-family: $font-family-roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        margin-right: 20px;
+      }
+
+      button:nth-child(2){
+        width: 38.52px;
+        height: 38.8px;
+        background: rgba(255, 255, 255, 0.002);
+        box-shadow: inset 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &-body{
+    width: 100%;
+    height: 95vh;
+    overflow-y: scroll; 
+    padding: 14px 14px 40px 14px;
+  }
+
+  &-product{
+    display: flex;
+
+    img{
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+    }
+
+    > div{
+      margin-left: 15px; 
+
+      h4{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        margin: 0;
+        color: rgba(51, 66, 91, 0.7);
+      }
+
+      h2{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 17px;
+        color: #000000;
+        margin: 9px 0;
+      }
+
+      div{
+        display: flex;
+        flex-direction: column;
+
+        span{
+          margin: 6px 0;
+          display: flex;
+          font-family: $font-family-poppins;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 17px;
+          color: rgba(51, 66, 91, 0.7);
+
+          p{
+            margin: 0 0 0 42px;
+            color: #33425B;
+
+          }
+        }
+      }
+    }
+  }
+  
+  &-nav{
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      top: 49%;
+      height: 1px;
+      background: rgba(34, 36, 38, 0.15);
+    }
+ 
+    div{
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      position: relative;
+      background-color: #fff;
+      z-index: 1;
+      
+      button:nth-child(1){
+        width: 144.59px;
+        height: 36px;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 4px 0px 0px 4px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.95);
+      }
+
+      button:nth-child(2){
+        width: 170.3px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.002);
+        border: none;
+        border-left: 1px solid rgba(34, 36, 38, 0.15);
+        border-radius: 0px 4px 4px 0px;
+        outline: none;
+        cursor: pointer;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+
+  &-info{
+    margin-top: 17px;
+
+    div{
+      display: flex;
+      align-items: center;
+      margin-bottom: 9px;
+
+      p{
+        margin: 0 10px 0 0 ;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: rgba(51, 66, 91, 0.7);
+        width: 120px;
+      }
+
+      span{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #33425B;
+      }
+    }
+  }
+
+  &-title{
+    margin-top: 55px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      top: 49%;
+      height: 1px;
+      background: rgba(34, 36, 38, 0.15);
+    }
+
+    span{
+      position: relative;
+      padding: 0 15px;
+      background: #fff;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  &-prices{
+    border: 1px solid rgba(34, 36, 38, 0.1);
+    border-radius: 4px;
+    margin-top: 17px;
+    overflow: hidden;
+
+    &-head{
+      display: flex;
+
+      h3{
+        margin: 0;
+        width: 152px;
+        height: 44px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12.6px;
+        line-height: 20px;
+        color: #33425B;
+        border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+        background: #F9FAFB;
+      }
+    }
+
+    &-list{
+      display: flex;
+
+      > div{
+        width: 152px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span{
+          margin: 0;
+          width: 152px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 40px;
+          font-family: $font-family-roboto;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12.6px;
+          line-height: 20px;
+          color: rgba(0, 0, 0, 0.87);
+
+          button{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5px;
+            color: #CCCCCC;
+            border: 1px solid #CCCCCC;
+            cursor: pointer;
+            background: none;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+
+        p{
+          margin: 0;
+          font-family: $font-family-roboto;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12.6px;
+          line-height: 20px;
+          color: #4183C4;
+          border-bottom: 1px dotted rgba(33,133,208,.5);
+        }
+
+        h5{
+          margin: 0;
+          font-family: $font-family-roboto;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12.6px;
+          line-height: 20px;
+          color: rgba(0, 0, 0, 0.87);
+        }
+      }
+    }
+  }
+
+  &-table{
+    border: 1px solid rgba(34, 36, 38, 0.1);
+    border-radius: 4px;
+    margin-top: 17px;
+    overflow: hidden;
+
+    &-head{
+      display: flex;
+
+      h3{
+        margin: 0;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12.6px;
+        line-height: 20px;
+        color: #33425B;
+        background: #F9FAFB;
+      }
+
+      h3:nth-child(1){
+        width: 177px;
+        padding-left: 10px;
+      }
+
+      h3:nth-child(2){
+        width: 136px;
+        justify-content: center;
+      }
+
+      h3:nth-child(3){
+        width: 136px;
+        justify-content: right;
+      }
+
+      h3:nth-child(4){
+        width: 160px;
+        justify-content: right;
+      }
+
+      h3:nth-child(5){
+        width: 152px;
+        justify-content: right;
+      }
+    } 
+
+    &-list{
+      display: flex;
+
+      div{
+        height: 44px;
+        display: flex;
+        align-content: center;
+        border-top: 1px solid rgba(34, 36, 38, 0.1);
+
+        P{
+          margin: 0;
+          font-family: $font-family-poppins;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12.6px;
+          line-height: 15px;
+          color: #4183C4;
+          align-self: center;
+        }
+
+        span{
+          font-family: $font-family-roboto;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12.6px;
+          line-height: 15px;
+          color: rgba(0, 0, 0, 0.87);
+          align-self: center;
+        }
+      }
+
+      div:nth-child(1){
+        width: 177px;
+        padding-left: 10px;
+      }
+
+      div:nth-child(2){
+        width: 136px;
+        justify-content: center;
+      }
+
+      div:nth-child(3){
+        width: 136px;
+        justify-content: right;
+      }
+
+      div:nth-child(4){
+        width: 160px;
+        justify-content: right;
+      }
+
+      div:nth-child(5){
+        width: 152px;
+        justify-content: right;
+      }
+    }
+  }
+}

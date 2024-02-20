@@ -1,0 +1,16 @@
+.add{
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #E1580B;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30px;
+  z-index: 5;
+}

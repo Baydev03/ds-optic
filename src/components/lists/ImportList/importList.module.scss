@@ -1,0 +1,106 @@
+@import '/src/scss/variables';
+
+.import{
+  padding: 11px 39px 0 9px;
+  box-sizing: border-box;
+
+  >h3{
+    height: 32.03px;
+    background: #F0F0F2;
+    border-radius: 4px;
+    margin: 0;
+    font-family: $font-family-poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+  }
+
+  &-title{
+    display: flex;
+
+    div{
+      min-width: 150px;
+      border: 1px solid black;
+      margin: 0 5px 5px 5px;
+      padding: 0 5px;
+      font-size: 12px;
+      cursor: pointer;
+      position: relative;
+
+      span{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      ul{
+        list-style: none;
+        width: 150%;
+        margin: 0;
+        padding: 5px 0;
+        left: -3%;
+        position: absolute;
+        top: -5%;
+        background: #fff;
+        z-index: 3;
+        box-shadow: 0px 0px 3px 3px #00000022;
+        border-radius: 5px;
+
+        li{
+          padding: 2px 15px;
+          border-radius: 5px;
+          margin: 0 5px;
+
+          &:hover{
+            background: $app-main-color;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  &-table{
+    padding-left: 30px;
+    width: 1250px;
+    overflow-x: scroll;
+
+    >div:nth-child(2){
+      height: 680px;
+      td{
+        min-width: 160px;
+        height: 24px;
+      }
+    }
+  }
+
+  &-body{
+    display: flex;
+    position: relative;
+  }
+
+  &-removes{
+    position: absolute;
+    left: -25px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+
+    button{
+      margin-top: 8px;
+      background: none;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      color: gray;
+      font-size: 13px;
+    }
+  }
+}

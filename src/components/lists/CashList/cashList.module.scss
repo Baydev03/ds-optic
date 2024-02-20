@@ -1,0 +1,317 @@
+@import '/src/scss/variables';
+
+.list-head{
+  background: #FFFFFF;
+  box-shadow: 0px 1px 0px #E1E2E6, 0px 0px 0px 1px #E6E7EB;
+  height: 50px;
+  display: flex;
+
+  .list-child{
+    padding: 14px 7.5px;
+    width: 166px;
+    height: 100%;
+    border-right: 1px solid #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 10.4px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #33425B;
+    }
+
+    > span{
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12.6px;
+      line-height: 15px;
+      color: #4183C4;
+    }
+
+    h4{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12.6px;
+      line-height: 15px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  .list-child-user{
+    padding: 14px 7.5px;
+    width: 364px;
+    height: 100%;
+    border-right: 1px solid #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 10.4px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #33425B;
+    }
+
+    div{
+      width: 128px;
+      height: 27.5px;
+      background: #FFFFFF;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+
+      img{
+        width: 26px;
+        height: 100%;
+      }
+
+      span{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        display: flex;
+        font-weight: bold;
+        justify-content: center;
+        font-size: 12px;
+        padding-right: 5px;
+        line-height: 15px;
+      }
+    }
+  }
+  
+  .list-child-terminal{
+    padding: 14px 7.5px;
+    width: 179px;
+    height: 100%;
+    border-right: 1px solid #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 10.4px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #33425B;
+    }
+
+    button{
+      width: 36.73px;
+      height: 27.66px;
+      background: #FFFFFF;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      outline: none;
+      font-size: 11px;
+    }
+  }
+
+  .list-child-create{
+    padding: 14px 7.5px;
+    width: 270px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 10.4px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #33425B;
+    }
+
+    h4{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12.6px;
+      line-height: 15px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+}
+
+
+.list-body{
+  background: #FFFFFF;
+  box-shadow: 0px 1px 0px #E1E2E6, 0px 0px 0px 1px #E6E7EB;
+  height: 50px;
+  display: flex;
+
+  .list-child{
+    padding: 14px 7.5px;
+    width: 166px;
+    height: 100%;
+    border-right: 1px solid #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10.4px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #33425B;
+    }
+
+    > span{
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12.6px;
+      line-height: 15px;
+      color: #4183C4;
+    }
+
+    h4{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12.6px;
+      line-height: 15px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  .list-child-user{
+    padding: 14px 7.5px;
+    width: 364px;
+    height: 100%;
+    border-right: 1px solid #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10.4px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #33425B;
+    }
+
+    div{
+      width: 50%;
+      height: 55px;
+      background: #FFFFFF;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+
+      img{
+        width: 26px;
+        object-fit: contain ;
+        height: 100%;
+      }
+
+      span{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        display: flex;
+        font-weight: 400;
+        justify-content: center;
+        font-size: 12px;
+        padding-right: 5px;
+        line-height: 15px;
+      }
+    }
+  }
+  
+  .list-child-terminal{
+    padding: 14px 7.5px;
+    width: 179px;
+    height: 100%;
+    border-right: 1px solid #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10.4px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #33425B;
+    }
+
+    button{
+      width: 36.73px;
+      height: 27.66px;
+      background: #FFFFFF;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 4px;
+      outline: none;
+      font-size: 11px;
+    }
+  }
+
+  .list-child-create{
+    padding: 14px 7.5px;
+    width: 270px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10.4px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #33425B;
+    }
+
+    h4{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12.6px;
+      line-height: 15px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+}

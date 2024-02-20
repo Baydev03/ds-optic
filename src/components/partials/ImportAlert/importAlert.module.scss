@@ -1,0 +1,30 @@
+@import '/src/scss/variables';
+
+.alert{
+  text-align: right;
+
+  h3{
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-family: $font-family-poppins;
+    font-weight: 500;
+  }
+
+  p{
+    font-family: $font-family-poppins;
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  button{
+    margin-top: 30px;
+    color: #fff;
+    background: $app-main-color;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px 15px;
+  }
+}

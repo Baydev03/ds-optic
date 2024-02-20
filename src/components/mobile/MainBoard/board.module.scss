@@ -1,0 +1,124 @@
+@import '/src/scss/variables';
+
+.board{
+  margin-top: 30px;
+
+  &-company{
+    margin-bottom: 30px;
+    background: #FFF;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    height: 43px;
+    cursor: pointer;
+
+    p{
+      margin: 0;
+      color: #015589;
+      font-size: 15px;
+      font-family: $font-family-poppins;
+      font-weight: 500;
+      line-height: 24.167px;
+    }
+
+    span{
+      display: flex;
+      align-items: center;
+      font-size: 25px;
+      color: #015589;
+    }
+  }
+
+  &-list{
+    background: #fff;
+    padding: 20px 30px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #E7E7E7;
+
+    &-head{
+      display: flex;
+      justify-content: space-between;
+
+      span{
+        width: 48%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        color: #000;
+        font-size: 15px;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24.167px;
+
+        svg{
+          font-size: 20px;
+        }
+      }
+    }
+
+    >p{
+      margin: 0;
+      margin-top: 20px;
+      color: #015589;
+      font-size: 15px;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24.167px;
+    }
+    
+    &-filters{
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+
+      span{
+        color: #000;
+        font-size: 15px;
+        cursor: pointer;
+        position: relative;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24.167px;
+        padding-bottom: 10px;
+
+        &::before{
+          content: '';
+          position: absolute;
+          width: 130%;
+          height: 1.5px;
+          display: none;
+          bottom: 0px;
+          left: -15%;
+          background: rgba(1, 85, 137, 1);
+        }
+      }
+
+      .active{
+        &::before{
+          display: block;
+        }
+      }
+    }
+  }
+
+  g:nth-child(3){
+    display: none;
+  }
+
+  g{
+    path{
+      fill: rgba(225, 88, 11, 1);
+      color: red !important;
+    }
+
+    rect{
+      border-left: 1px solid red !important ;
+    }
+  }
+}

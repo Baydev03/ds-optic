@@ -1,0 +1,14 @@
+.modal{
+  width: 800px;
+  height: 100vh;
+  transition: .3s;
+  background: #fff;
+  position: fixed;
+  right: -100%;
+  top: 0;
+  box-shadow: -10px 0 15px -5px rgba(0,0,0,.1);
+}
+
+#active{
+  right: 0;
+}

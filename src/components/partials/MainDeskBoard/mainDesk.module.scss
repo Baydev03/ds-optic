@@ -1,0 +1,70 @@
+@import '/src/scss/variables';
+
+.board{
+  padding: 20px;
+
+  >h3{
+    margin: 0;
+    color: #33425B;
+    font-size: 26.6px;
+    font-family: $font-family-poppins;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 31.667px;
+  }
+
+  &-wrapper{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-info{
+    width: 20%;
+
+    span{
+      display: block;
+      width: 100%;
+      padding: 27px 10px;
+
+      p{
+        margin: 0;
+        color: #33425B;
+        font-size: 26.6px;
+        font-family: $font-family-roboto;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 31.667px;
+      }
+
+      b{
+        color: #B0B0B0;
+        font-size: 14px;
+        font-family: $font-family-roboto;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16.667px;
+      }
+    }
+
+    span:nth-child(1){
+      background: rgba(0, 0, 0, 0.04);
+      box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.10) inset;
+    }
+  }
+
+  g:nth-child(3){
+    display: none;
+  }
+
+  g{
+    path{
+      fill: #0288D133;
+      color: red !important;
+    }
+
+    rect{
+      border-left: 1px solid red !important ;
+    }
+  }
+}

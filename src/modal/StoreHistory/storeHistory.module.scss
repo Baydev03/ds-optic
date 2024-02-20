@@ -1,0 +1,474 @@
+@import '/src/scss/variables';
+
+.history{
+  &-head{
+    display: flex;
+    justify-content: space-between;
+    border-width: 0.833333px 0px;
+    border-style: solid;
+    border-color: rgba(34, 36, 38, 0.15);
+    padding: 7px 10px 7px 20px;
+  }
+
+  &-nav{
+    width: 362px;
+    height: 28px;
+    margin: 0 auto;
+    margin-top: 11px;
+    border-radius: 4px;
+    border: 1px solid #E8E8E8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    
+    button{
+      width: 50%;
+      height: 100%;
+      border-radius: 0;
+      background-color: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      color: $app-main-color;
+      transition: .4s;
+    }
+
+    .active_btn{
+      background: #E8E8E8;
+      border-radius: 4px;
+    }
+  }
+
+  &-editBtn{
+    width: 154.27px;
+    height: 38.77px;
+    background: $app-main-color;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: $font-family-poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+  }
+
+  &-closer{
+    width: 38.48px;
+    height: 38.77px;
+    background: rgba(255, 255, 255, 0.002);
+    box-shadow: inset 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-body{
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 762px;
+  }
+
+  &-info{
+    display: flex;
+    justify-content: space-between;
+
+    h3{
+      margin: 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 26.6px;
+      line-height: 32px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    span{
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 26.6px;
+      line-height: 32px;
+      color: #E6E6E6;
+    }
+  }
+
+  &-user{
+    >p{
+      margin: 2.5px 0 0 0;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &-links{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+
+    button{
+      width: 110px;
+      height: 31px;
+      background: $app-main-color;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-family: $font-family-poppins;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 17px;
+      color: #FFFFFF;
+    }
+  }
+
+  &-line{
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      top: 49%;
+      background: rgb(216, 216, 216);
+    }
+
+    span{
+      font-family: $font-family-poppins;
+      font-style: normal;
+      position: relative;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.85);
+      background: #fff;
+      padding: 0 10px;
+    }
+  }
+
+  &-title{
+    margin: 35px 0 0 0;
+    font-family: $font-family-poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22.4px;
+    line-height: 26px;
+    color: #33425B;
+  }
+
+  &-drop{
+    border: 1.25px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+
+    &-head{
+      padding: 10px;
+    }
+
+    &-handler{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      >div{
+        display: flex;
+        align-items: center;
+
+        span{
+          width: 11.99px;
+          height: 11.99px;
+          background: #2185D0;
+          display: flex;
+          border-radius: 7000px;
+          justify-content: space-between;
+        }
+
+        p{
+          margin: 0 0 0 11px;
+          font-family: $font-family-poppins;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 18px;
+          line-height: 22px;
+          color: #4183C4;
+        }
+      }
+
+      h3{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: rgba(0, 0, 0, 0.87);
+        justify-content: flex-end;
+        margin: 0 30px 0 0;
+      }
+    }
+
+    &-info{
+      margin-top: 8px;
+      padding-left: 23px;
+
+      p{
+        margin: 0;
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: rgba(0, 0, 0, 0.87);
+
+        span{
+          color: #4183C4;
+        }
+      }
+
+      b{
+        font-family: $font-family-poppins;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11.2px;
+        line-height: 14px;
+        color: rgba(0, 0, 0, 0.87);
+        
+        span{
+          margin-right: 3px;
+          color: #4183C4;
+        }
+      }
+    }
+
+    &-body{
+      border-top: 1.25px solid rgba(0, 0, 0, 0.1);
+      
+      &-handler{
+        padding: 0 10px;
+        height: 41.23px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+
+        span{
+          display: flex;
+          align-items: center;
+          font-family: $font-family-poppins;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+          color: #777777;
+
+          svg{
+            margin-right: 10px;
+            font-size: 17px;
+          }
+        }
+
+        button{
+          background: none;
+          outline: none;
+          display: flex;
+          align-items: center;
+          border: none;
+          font-size: 18px;
+          pointer-events: none;
+
+          svg{
+            color: #000000DE;
+          }
+        }
+      }
+
+      &-list{
+        &-child{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 44.5px;
+          border-top: 1.25px solid rgba(0, 0, 0, 0.1);
+
+          div{
+            padding-left: 5px;
+            font-family: $font-family-poppins;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12.6px;
+            line-height: 16px;
+            color: #33425B;
+
+            span{
+              font-family: $font-family-poppins;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 12.6px;
+              line-height: 16px;
+              color: #4183C4;
+              cursor: pointer;
+            }
+          }
+
+          .baller{
+            position: relative;
+
+            &::before{
+              content: '';
+              position: absolute;
+              width: 11.99px;
+              height: 11.99px;
+              left: 10px;
+              top: 2px;
+              background: #2185D0;
+              border-radius: 7000px;
+            }
+          }
+          
+          div:nth-child(1){
+            width: 91px;
+            text-align: center;
+          }
+
+          div:nth-child(2){
+            width: 96px;
+          }
+
+          div:nth-child(3){
+            width: 179px;
+          }
+
+          div:nth-child(4){
+            width: 222px;
+          }
+
+          div:nth-child(5){
+            width: 172px;
+            text-align: right;
+            padding-right: 15px;
+          }
+        }
+      }
+    }
+    
+    &-footer{
+      border-top: 1.25px solid rgba(0, 0, 0, 0.1);
+      
+      &-handler{
+        padding: 0 10px;
+        height: 41.23px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+
+        span{
+          display: flex;
+          align-items: center;
+          font-family: $font-family-poppins;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+          color: #777777;
+        }
+
+        button{
+          background: none;
+          outline: none;
+          display: flex;
+          align-items: center;
+          border: none;
+          font-size: 18px;
+
+          svg{
+            color: #000000DE;
+          }
+        }
+      }
+
+      &-list{
+        &-child{
+          display: flex;
+          justify-content: space-between;
+          align-content: center;
+          border-top: 1.25px solid rgba(0, 0, 0, 0.1);
+          height: 44.5px;
+
+          div{
+            font-family: $font-family-poppins;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12.6px;
+            line-height: 20px;
+            color: #33425B;
+            display: flex;
+            align-items: center;
+
+            span{
+              cursor: pointer;
+              color: #4183C4;
+
+            }
+          }
+
+          div:nth-child(1){
+            width: 400px;
+            padding-left: 10px;
+            border-right: 1.25px solid rgba(34, 36, 38, 0.1);
+          }
+
+          div:nth-child(2){
+            width: 125px;
+            border-right: 1.25px solid rgba(34, 36, 38, 0.1);
+            justify-content: flex-end;
+            padding-right: 10px;
+          }
+
+          div:nth-child(3){
+            width: 119px;
+            border-right: 1.25px solid rgba(34, 36, 38, 0.1);
+            justify-content: flex-end;
+            padding-right: 10px;
+          }
+
+          div:nth-child(4){
+            width: 119px;
+            justify-content: flex-end;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+
+    #active_drop{
+      div:nth-child(1){
+        button{
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

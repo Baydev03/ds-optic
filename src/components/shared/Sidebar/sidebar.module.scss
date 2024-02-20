@@ -1,0 +1,151 @@
+@import '/src/scss/variables';
+
+.sidebar{
+  width: 185px;
+  background-color: $app-lightdark-color;
+  position: relative;
+  margin-right: 5px;
+
+  &::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: $app-lightdark-color;
+    right: -5px;
+  }
+
+  &-buttons{
+    margin-bottom: 5px;
+
+    button{
+      height: 38px;
+      width: 185px; 
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      background: $app-main-color;
+      color: #fff;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      cursor: pointer;
+    }
+  }
+
+  a{
+    height: 37px;
+    width: 185px;
+    font-weight: 500;
+    font-size: 13px;  
+    line-height: 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: rgba(0,0,0, 0.8);
+    border-radius: 4px;
+    margin-top: 5px;
+    padding-left: 40px;
+    box-sizing: border-box;
+  }
+
+  .active{
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  &-list{
+    a{
+      transition: .2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+
+      svg {
+        font-size: 17px;
+        left: 11px;
+        position: absolute;
+      }
+
+      &:hover{
+        background: $app-lightdark-color;
+      }
+    }
+
+    ul{
+      margin: 0;
+      padding: 0;
+      height: 37px;
+      overflow: hidden;
+
+      span{
+        height: 37px;
+        display: flex;
+        align-items: center;
+        font-family: $font-family-poppins;
+        font-size: 13px;
+        gap: 10px;
+        font-weight: 500;
+        line-height: 16px;
+        cursor: pointer;
+        margin-top: 5px;
+        border-radius: 4px;
+        padding-left: 40px;
+        transition: .2s;
+        position: relative;
+
+        .icon {
+          font-size: 17px;
+          left: 11px;
+          position: absolute;
+        }
+
+        .chevron{
+          margin-left: 10px;
+          font-size: 10px;
+          color: #B6B6B6;
+          position: absolute;
+          right: 5%;
+        }
+
+        &:hover{
+          background: $app-lightdark-color;
+        }
+      }
+
+      li{
+        margin-bottom: 10px;
+        padding-left: 28px;
+        font-family: $font-family-poppins;
+        font-size: 11px;
+        font-weight: 500;
+        cursor: pointer;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+
+      li:last-child{
+        margin-bottom: 0;
+      }
+
+      .active_link{
+        font-weight: 600;
+      }
+    }
+
+    .active_list{
+      height: auto;
+      overflow: inherit;
+      margin-bottom: 5px;
+
+      span{
+        margin-bottom: 5px;
+
+        .chevron{
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

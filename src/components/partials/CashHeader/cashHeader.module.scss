@@ -1,0 +1,33 @@
+@import '/src/scss/variables';
+
+.cash{
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-createBtn{
+    width: 101.56px;
+    height: 38.78px;
+    background: $app-main-color;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-family: $font-family-poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  span{
+    font-family: $font-family-poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
