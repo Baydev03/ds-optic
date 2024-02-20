@@ -2,11 +2,17 @@ import { useCreateProductCategoryMutation, useGetProductGroupsQuery } from '../.
 import { setModal } from '../../store/slices/modalSlice';
 import cls from './createCategory.module.scss';
 import { useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
 import { GrClose } from 'react-icons/gr'
 import { useState } from 'react';
 import Loader from '../../components/elements/Loader';
 import { notification } from 'antd';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+
+const schema = yup.object().shape({
+  name: yup.string().required(),
+});
 
 const CreateCategory = () => {
   const dispatch = useDispatch()
@@ -15,7 +21,7 @@ const CreateCategory = () => {
   const [api, contextHolder] = notification.useNotification();
   
   const [store, setStore] = useState({
-    storeValue: 'Группы',
+    storeValue: '',
     storeObject: {},
     isStore: false,
   })
@@ -23,8 +29,10 @@ const CreateCategory = () => {
   const {
     register,
     handleSubmit,
+    formState: { isValid },
     reset,
   } = useForm({
+    resolver: yupResolver(schema),
     mode: 'onSubmit',
   })
 
@@ -56,7 +64,8 @@ const CreateCategory = () => {
         {contextHolder}
         <div className={cls['group']}>
           <div className={cls['group-head']}>
-            <button onClick={handleSubmit(onSubmit)}>Сохранить</button>
+            <button className={cls[isValid && store.storeObject && store.storeValue ? 'active_btn' : '']} 
+              onClick={handleSubmit(onSubmit)}>Сохранить</button>
             <button onClick={() => dispatch(setModal(false))}><GrClose/></button>
           </div>
           <div className={cls['group-body']}>

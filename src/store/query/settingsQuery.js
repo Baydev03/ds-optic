@@ -17,6 +17,15 @@ export const settingsQuery = createApi({
       }),
       providesTags: () => [storeQueryTags.SETTINGS_TAG],
     }),
+    getCountries: builder.query({
+      query: ({ token }) => ({
+        url: 'settings/countries/',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: () => [storeQueryTags.SETTINGS_TAG],
+    }),
     createSettingsCountry: builder.mutation({
       query: ({ data, token }) => ({
         url: 'settings/countries/',
@@ -45,6 +54,6 @@ export const settingsQuery = createApi({
 export const { 
   useCreateSettingsCountryMutation,
   useCreateSettingsTaxesMutation,
-  useGetUsersQuery, 
+  useGetCountriesQuery,
   useGetTaxesQuery,
 } =  settingsQuery;

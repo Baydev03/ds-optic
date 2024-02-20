@@ -4,10 +4,16 @@ import { useDispatch } from 'react-redux';
 import { GrClose } from 'react-icons/gr'
 import { useState } from 'react';
 import { useGetStoresQuery } from '../../store/query/storesQuery';
-import { useForm } from 'react-hook-form';
 import { useCreateProductGroupsMutation } from '../../store/query/productQuery';
 import Loader from '../../components/elements/Loader';
 import { notification } from 'antd';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+
+const schema = yup.object().shape({
+  name: yup.string().required(),
+});
 
 const CreateGroup = () => {
   const dispatch = useDispatch()
@@ -19,11 +25,11 @@ const CreateGroup = () => {
 
   const {
     formState: { isValid },
-    getValues,
     register,
     handleSubmit,
     reset,
   } = useForm({
+    resolver: yupResolver(schema),
     mode: 'onSubmit',
   })
 
@@ -60,7 +66,7 @@ const CreateGroup = () => {
         {contextHolder}
         <div className={cls['group']}>
           <div className={cls['group-head']}>
-            <button className={cls[isValid && getValues().name && store.storeValue ? 'active_btn' : '']}  
+            <button className={cls[isValid && store.storeObject && store.storeValue ? 'active_btn' : '']}  
               onClick={handleSubmit(onSubmit)}>Сохранить</button>
             <button onClick={() => dispatch(setModal(false))}><GrClose/></button>
           </div>

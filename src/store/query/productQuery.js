@@ -17,6 +17,24 @@ export const productQuery = createApi({
       }),
       providesTags: () => [storeQueryTags.PRODUCT_TAG],
     }),
+    getProductsCategoryByHeaders: builder.query({
+      query: ({ headers, token }) => ({
+        url: `products/categories/?${headers}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: () => [storeQueryTags.PRODUCT_TAG],
+    }),
+    getOneProductsCategory: builder.query({
+      query: ({ id, token }) => ({
+        url: `products/categories/${id}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: () => [storeQueryTags.PRODUCT_TAG],
+    }),
     getProductsByHeaders: builder.query({
       query: ({ id, token }) => ({
         url: `products/products/?category__group__branch__id=${id}`,
@@ -57,10 +75,40 @@ export const productQuery = createApi({
       }),
       invalidatesTags: [storeQueryTags.PRODUCT_TAG],
     }),
+    editProduct: builder.mutation({
+      query: ({ id, data, token }) => ({
+        url: `products/products/${id}/`,
+        method: 'PATCH',
+        body: data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      invalidatesTags: [storeQueryTags.PRODUCT_TAG],
+    }),
+    deleteProduct: builder.mutation({
+      query: ({ id, token }) => ({
+        url: `products/products/${id}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      invalidatesTags: [storeQueryTags.PRODUCT_TAG],
+    }),
     // Product Groups
     getProductGroups: builder.query({
       query: ({ token }) => ({
         url: 'products/groups',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: () => [storeQueryTags.PRODUCT_TAG],
+    }),
+    getProductGroupsByHeader: builder.query({
+      query: ({ headers, token }) => ({
+        url: `products/groups/?${headers}`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -113,7 +161,10 @@ export const productQuery = createApi({
 });
 
 export const {
+  useEditProductMutation,
   useGetProductsQuery, 
+  useGetProductsCategoryQuery,
+  useGetOneProductsCategoryQuery,
   useGetProductsByHeadersQuery,
   useGetOneProductQuery,
   useCreateProductsBulkMutation, 
@@ -123,4 +174,8 @@ export const {
   useDeleteProductGroupsMutation,
   useCreateProductCategoryMutation,
   useGetProductCategoriesQuery,
+  useDeleteProductMutation,
+
+  useGetProductGroupsByHeaderQuery,
+  useGetProductsCategoryByHeadersQuery,
 } =  productQuery;

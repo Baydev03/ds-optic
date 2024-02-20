@@ -17,6 +17,7 @@ import CreateAdmin from './CreateAdmin';
 import CreateCahier from './CreateCahier';
 import CreateStorekeeper from './CreateStorekeeper';
 import CreateCategory from './CreateCategory';
+import CustomProduct from './CustomProduct';
 
 const Modal = () => {
   const { isModal, modalType } = useSelector(state => state.modal)
@@ -39,7 +40,8 @@ const Modal = () => {
                                 modalTypes.STORE_HISTORY_TYPE === modalType ? <StoresHistory/> : 
                                   modalTypes.CHANGE_HISTORY_TYPE === modalType ? <ChangeHistory/> : 
                                     modalTypes.CREATE_GROUP_TYPE === modalType ? <CreateGroup/> : 
-                                      modalTypes.CREATE_CATEGORY_TYPE === modalType ? <CreateCategory/> : ''}
+                                      modalTypes.CREATE_CATEGORY_TYPE === modalType ? <CreateCategory/> : 
+                                        modalTypes.CUSTOM_PRODUCT_INFO === modalType ? <CustomProduct/> : ''}
     </div>
   )
 }

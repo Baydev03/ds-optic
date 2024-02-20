@@ -17,6 +17,15 @@ export const usersQuery = createApi({
       }),
       providesTags: () => [storeQueryTags.USERS_TAG],
     }),
+    getSingleUsers: builder.query({
+      query: ({ id, token }) => ({
+        url: `accounts/users/${id}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: () => [storeQueryTags.USERS_TAG],
+    }),
     createRole: builder.mutation({
       query: ({ data, token }) => ({
         url: 'accounts/roles/',
@@ -43,7 +52,7 @@ export const usersQuery = createApi({
     editUser: builder.mutation({
       query: ({ id, data, token }) => ({
         url: `accounts/users/${id}/`,
-        method: 'PUT',
+        method: 'PATCH',
         body: data,
         headers: {
         
@@ -69,6 +78,7 @@ export const {
   useCreateRoleMutation, 
   useEditUserMutation,
   useCreateUserMutation,
+  useGetSingleUsersQuery,
   useDeletUserMutation,
   useGetUsersQuery, 
 } =  usersQuery;

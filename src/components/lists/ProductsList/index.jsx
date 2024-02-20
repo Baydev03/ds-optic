@@ -27,7 +27,8 @@ const ProductsList = ({...togglers}) => {
   const [showCategories, setShowCategories] = useState(null)
   const [showProducts, setShowProducts] = useState(null)
 
-  const modalHandler = () => {
+  const modalHandler = (id) => {
+    localStorage.setItem('productId' , id)
     dispatch(setModal(true))
     dispatch(setModalType(modalTypes.EDIT_PRODUCT_TYPE))
   }
@@ -66,11 +67,6 @@ const ProductsList = ({...togglers}) => {
   const foundedStoreID = +localStorage.getItem('Index')
 
   const { isLoading, refetch } = useGetProductsByHeadersQuery({ id: foundedStoreID, token: localStorage.getItem('accessToken') })
-
-  const redirectToSingleProductInfo = (id) => {
-    navigate(`/single-product/${id}`)
-    localStorage.setItem('productId' , id)
-  }
 
   const gettter = () => {
     refetch().then(res => {
@@ -334,7 +330,7 @@ const ProductsList = ({...togglers}) => {
                             <div className={cls['table-head-checkbox']}>
                               <span></span>
                             </div>
-                            <div onClick={() => redirectToSingleProductInfo(item.id)} id={cls['item-naming']} className={cls['table-naming']}>
+                            <div onClick={() => modalHandler(item.id)} id={cls['item-naming']} className={cls['table-naming']}>
                               <p>
                                 <img src={item?.image} alt=''/>
                                 {item?.name}
@@ -409,7 +405,7 @@ const ProductsList = ({...togglers}) => {
                         <div className={cls['table-head-checkbox']}>
                           <span></span>
                         </div>
-                        <div id={cls['item-naming']} className={cls['table-naming']}>
+                        <div onClick={() => modalHandler(item.id)} id={cls['item-naming']} className={cls['table-naming']}>
                           <p>
                             <img src={item?.image} alt=''/>
                             {item?.name}

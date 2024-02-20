@@ -1,28 +1,43 @@
 import { setModal, setModalType } from '../../store/slices/modalSlice';
 import cls from './createProduct.module.scss';
-import { AiOutlineDown } from 'react-icons/ai'
 import { useDispatch } from 'react-redux';
 import { GoPlus } from 'react-icons/go';
 import { Switch, notification } from 'antd';
 import { modalTypes } from '../../constants';
 import { useForm } from 'react-hook-form';
-import React, { useState } from 'react';
-import { useCreateProductMutation } from '../../store/query/productQuery';
+import { useState } from 'react';
+import { useCreateProductMutation, useGetProductGroupsByHeaderQuery, 
+  useGetProductsCategoryByHeadersQuery } from '../../store/query/productQuery';
 import { useGetStoresQuery } from '../../store/query/storesQuery';
-import { axiosInstance } from '../../axios';
 import moment from 'moment';
 import Loader from '../../components/elements/Loader';
 import { IoClose } from 'react-icons/io5';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useGetCountriesQuery, useGetTaxesQuery } from '../../store/query/settingsQuery';
+
+const schema = yup.object().shape({
+  name: yup.string().required(),
+  code_of_good: yup.number().required(),
+  barcode: yup.number().required(),
+  articul: yup.string().required(),
+  description: yup.string().required(),
+  unit: yup.string().required(),
+  purchase_price: yup.string().required(),
+  markup: yup.string().required(),
+  price: yup.string().required(),
+  discount: yup.string().required(),
+  nsp: yup.string().required(),
+});
+
 const CreateProduct = () => {
-  const { handleSubmit, register } = useForm()
+  const { handleSubmit, register, formState: { isValid }, reset } = useForm({
+    resolver: yupResolver(schema),
+  })
+
   const dispatch = useDispatch()
   const [type, setType] = useState('product')
-  const [getTaxes, setGetTaxes] = useState({})
-  const [getCategories, setGetCategories] = React.useState([])
-  const [getGroup, setGetGroups] = React.useState([])
-  const [render, setRender] = React.useState('text')
-  const [getCountries, setGetCountries] = useState({})
   const [file, setFile] = useState()
   const [image, setImage] = useState()
   const [store, setStore] = useState({
@@ -54,22 +69,21 @@ const CreateProduct = () => {
     countryObject: {},
     isCountry: false,
   })
+
   const [createProduct, { isLoading }] = useCreateProductMutation()
   const { data } = useGetStoresQuery({token: localStorage.getItem('accessToken')})
   const [api, contextHolder] = notification.useNotification();
 
-  React.useEffect(() => {
-    axiosInstance.get('/settings/taxes').then(res => setGetTaxes(res.data))
-    axiosInstance.get('/settings/countries/').then(res => setGetCountries(res.data))
-  }, [])
+  const { data: taxesData } = useGetTaxesQuery({ token: localStorage.getItem('accessToken') })
+  const { data: countryData } = useGetCountriesQuery({ token: localStorage.getItem('accessToken') })
 
-  React.useEffect(() => {
-    axiosInstance.get('/products/categories/')
-      .then(res => setGetCategories(res.data))
+  const { data: categoryData } = useGetProductsCategoryByHeadersQuery({ 
+    headers: `group=${group.groupObject?.id}`, token: localStorage.getItem('accessToken'),
+  })
 
-    axiosInstance.get('/products/groups/')
-      .then(res => setGetGroups(res.data))
-  }, [render]) 
+  const { data: groupData } = useGetProductGroupsByHeaderQuery({ 
+    headers: `branch=${store.storeObject?.id}`, token: localStorage.getItem('accessToken'),
+  })
 
   const onChange = (checked) => {
     console.log(`switch to ${checked}`);
@@ -87,20 +101,28 @@ const CreateProduct = () => {
 
     form.append('name', data.name)
     form.append('articul', data.articul)
-    form.append('category', +category?.categorybject?.id)
+    if(+category?.categorybject?.id){
+      form.append('category', +category?.categorybject?.id)
+    }
     form.append('code_of_good', data.code_of_good)
-    form.append('country', +ctry?.countryObject?.id)
+    if(+ctry?.countryObject?.id){
+      form.append('country', +ctry?.countryObject?.id)
+    }
     form.append('description', data.description)
     form.append('discount', data.discount)
     form.append('expire', moment(date).format('YYYY-MM-DD'))
-    form.append('image', file)
+    if(file){
+      form.append('image', file)
+    }
     form.append('markup', data.markup)
     form.append('material', 'blood')
     form.append('nsp', data.nsp)
     form.append('price', data.price)
     form.append('purchase_price', data.purchase_price)
     form.append('size', '12312312321')
-    form.append('tax', taxes?.taxObject?.id)
+    if(taxes?.taxObject?.id){
+      form.append('tax', taxes?.taxObject?.id)
+    }
     form.append('type', type)
     form.append('unit', data.unit)
     
@@ -109,11 +131,16 @@ const CreateProduct = () => {
         data: form,
         token: localStorage.getItem('accessToken'),
       })
-      api.open({
-        message: 'Продукт создан !',
-        duration: 3,
-      });
-      dispatch(setModal(false))
+        .then(res => {
+          if(!res.error){
+            api.open({
+              message: 'Продукт создан !',
+              duration: 3,
+            });
+            dispatch(setModal(false))
+            reset()
+          }
+        })
     } catch (e) {
       console.log(e)
     }
@@ -184,7 +211,10 @@ const CreateProduct = () => {
         {contextHolder}
         <div className={cls['create-product']}>
           <div className={cls['create-product-header']}>
-            <button className={cls['create-product-save']} onClick={handleSubmit(handleCreate)}>Сохранить</button>
+            <button 
+              id={cls[isValid ? 'active_btn' : '']}
+              className={cls['create-product-save']} 
+              onClick={handleSubmit(handleCreate)}>Сохранить</button>
             <button onClick={() => dispatch(setModal())} className={cls['create-product-exit']}><GoPlus/></button>
           </div>  
           <div className={cls['create-product-wrapper']}>
@@ -266,8 +296,10 @@ const CreateProduct = () => {
                     <span onClick={() => setGroup((prev) => ({...prev, isGroup: !group.isGroup}))}>{group.groupValue}</span>
                     {group.isGroup &&  <ul className={cls['drop']}>
                       {
-                        getGroup?.results?.map((item, i) => 
-                          <p key={i} onClick={() => handleGroup(item)}>{item.name}</p>)
+                        !groupData?.results ? <p>Магазин не выбран !</p> 
+                          : groupData?.results && groupData?.results?.length === 0 ? <p>Групп не найдено !</p> 
+                            : groupData?.results?.map((item, i) => 
+                              <p key={i} onClick={() => handleGroup(item)}>{item.name}</p>)
                       }
                     </ul>}
                   </div>
@@ -278,8 +310,10 @@ const CreateProduct = () => {
                     <span onClick={() => setCategory((prev) => ({...prev, isCategory: !category.isCategory}))}>{category.categoryValue}</span>
                     {category.isCategory &&  <ul className={cls['drop']}>
                       {
-                        getCategories?.results?.map((item, i) => 
-                          <p key={i} onClick={() => handleCategory(item)}>{item.name}</p>)
+                        !categoryData?.results ? <p>Группа не выбрана !</p> : 
+                          categoryData?.results && categoryData?.results?.length === 0 ? <p>Категорий не найдено</p> :
+                            categoryData?.results?.map((item, i) => 
+                              <p key={i} onClick={() => handleCategory(item)}>{item.name}</p>)
                       }
                     </ul>}
                   </div>
@@ -316,7 +350,7 @@ const CreateProduct = () => {
                     </span>
                     {ctry.isCountry &&  <ul className={cls['drop']}>
                       {
-                        getCountries?.results?.map((item, i) => 
+                        countryData?.results?.map((item, i) => 
                           <p key={i} onClick={() => handleCountry(item)}>
                             {item.country}
                           </p>)
@@ -383,7 +417,7 @@ const CreateProduct = () => {
                     <span onClick={() => setTaxes((prev) => ({...prev, isTaxes: !taxes.isTaxes}))}>{taxes.taxesValue}</span>
                     {taxes.isTaxes &&  <ul className={cls['drop']}>
                       {
-                        getTaxes?.results?.map((item, i) => 
+                        taxesData?.results?.map((item, i) => 
                           <p key={i} onClick={() => handleTaxes(item)}>{item.taxes}</p>)
                       }
                     </ul>}

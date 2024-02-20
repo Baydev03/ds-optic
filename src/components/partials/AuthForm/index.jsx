@@ -117,10 +117,10 @@ const AuthForm = () => {
         reset()
       }
     } catch (error) {
-      if (error.response.data.detail) {
+      if (error.response.data?.detail) {
         setError('password', {
           type: 'validate',
-          message: error.response.data.detail,
+          message: error.response.data?.detail,
         });
       }
     }

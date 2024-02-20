@@ -1,13 +1,26 @@
+import { useEditUserMutation, useGetSingleUsersQuery } from '../../store/query/usersQuery'
 import { setModal } from '../../store/slices/modalSlice'
 import { useDispatch } from 'react-redux'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import cls from './editUser.module.scss'
 import { GrClose } from 'react-icons/gr'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useEditUserMutation } from '../../store/query/usersQuery'
 import { IoClose } from 'react-icons/io5'
 import { notification } from 'antd'
+
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { userErrorsData } from '../../constants/errors'
+import Loader from '../../components/elements/Loader'
+
+const schema = yup.object().shape({
+  fullname: yup.string().required(),
+  email: yup.string().email().required(),
+  phone_number: yup.string().required(),
+  new_password: yup.string().min(5).max(16).required(),
+  current_password: yup.string().min(5).max(16).required(),
+});
 
 const EditUser = () => {
   const [type, setType] = useState({
@@ -16,11 +29,12 @@ const EditUser = () => {
   })
   const dispatch = useDispatch()
 
-  const { handleSubmit, register } = useForm({
+  const { handleSubmit, register, reset, formState: { isValid } } = useForm({
+    resolver: yupResolver(schema),
     mode: 'onSubmit',
   })
 
-  const [editUserHandler] = useEditUserMutation()
+  const [editUserHandler, { isLoading: editLoading }] = useEditUserMutation()
 
   const [file, setFile] = useState()
   const [image, setImage] = useState()
@@ -33,22 +47,43 @@ const EditUser = () => {
 
   const id = +localStorage.getItem('userId')
 
+  const { data, isLoading } = useGetSingleUsersQuery({ id, token: localStorage.getItem('accessToken') })
+
   const editUserFunc = async (e) => {
     try {
       const formData = new FormData()
 
-      formData.append('fullname', e.fullname)
-      formData.append('email', e.email)
-      formData.append('phone_number', e.phone_number)
-      formData.append('password', e.password)
-      formData.append('user_avatar', file)
+      formData.append('fullname', e.fullname || data.fullname)
+      formData.append('email', e.email || data.email)
+      formData.append('phone_number', e.phone_number || data.phone_number)
+      formData.append('password', e.new_password)
+      if(file){
+        formData.append('user_avatar', file)
+      }
       
       await editUserHandler({ id, data: formData, token: localStorage.getItem('accessToken') })
-      api.open({
-        message: 'Пользователь изменен !',
-        duration: 3,
-      }); 
-      modalCloser()
+        .then(res => {
+          if(!res.error){
+            api.open({
+              message: 'Пользователь изменен !',
+              duration: 3,
+            }); 
+            modalCloser()
+          }else{
+            if(res.error.data.phone_number){
+              api.open({
+                message: userErrorsData.phone_number,
+                duration: 3,
+              })
+            }
+            if(res.error.data.email){
+              api.open({
+                message: userErrorsData.email,
+                duration: 3,
+              })
+            }
+          }
+        })
     } catch (e) {
       console.log(e)
     }
@@ -72,12 +107,20 @@ const EditUser = () => {
     setFile(null)
   }
 
+  useEffect(() => {
+    if(data){
+      setImage(data?.user_avatar)
+      reset({ fullname: data.fullname, email: data.email, phone_number: data.phone_number })
+    }
+  }, [isLoading])
+
   return (
     <>
       {contextHolder}
-      <div className={cls['edit']}>
+      {isLoading || editLoading ? <Loader/> : <div className={cls['edit']}>
         <div className={cls['edit-head']}>
           <button 
+            id={cls[isValid ? 'disabled' : '']}
             className={cls['edit-editBtn']} onClick={handleSubmit(editUserFunc)}>Сохранить</button>
           <button onClick={() => dispatch(setModal(false))} className={cls['edit-closer']}><GrClose/></button>
         </div>
@@ -120,7 +163,7 @@ const EditUser = () => {
           <div className={cls['edit-input']}>
             <p>Текущий пароль</p>
             <label>
-              <input type={type.currentType ? 'password' : 'text'}  />
+              <input type={type.currentType ? 'password' : 'text'} {...register('current_password')}  />
               <span 
                 onClick={() => setType((prev) => ({...prev, currentType: !type.currentType}))}>
                 {type.currentType ? <FaRegEye/> : <FaRegEyeSlash/>}</span>
@@ -129,12 +172,12 @@ const EditUser = () => {
           <div className={cls['edit-input']}>
             <p>Новый пароль</p>
             <label>
-              <input type={type.newType ? 'password' : 'text'}  {...register('password')}/>
+              <input type={type.newType ? 'password' : 'text'} {...register('new_password')}/>
               <span onClick={() => setType((prev) => ({...prev, newType: !type.newType}))}>{type.newType ? <FaRegEye/> : <FaRegEyeSlash/>}</span>
             </label>
           </div>
         </div>
-      </div>
+      </div>}
     </>
   )
 }

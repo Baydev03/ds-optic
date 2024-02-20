@@ -58,7 +58,7 @@
   &-editBtn{
     width: 120.27px;
     height: 38.77px;
-    background: $app-main-color;
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 4px;
     border: none;
     outline: none;
@@ -69,6 +69,13 @@
     font-size: 14px;
     line-height: 17px;
     color: #FFFFFF;
+    pointer-events: none;
+  }
+
+  #disabled{
+    color: #FFFFFF;
+    background: $app-main-color;
+    pointer-events: all;
   }
 
   &-closer{

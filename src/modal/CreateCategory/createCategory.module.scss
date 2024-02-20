@@ -17,7 +17,7 @@
     button:nth-child(1){
       width: 112.89px;
       height: 39.8px;
-      background: $app-main-color;
+      background: rgba(0, 0, 0, 0.05);
       border-radius: 4px;
       border: none;
       font-family: $font-family-roboto;
@@ -26,6 +26,13 @@
       font-size: 14px;
       line-height: 17px;
       color: #FFFFFF;
+      pointer-events: none;
+    }
+
+    .active_btn{
+      opacity: 1 !important;
+      pointer-events: all !important;
+      background: $app-main-color !important;
     }
 
     button:nth-child(2){

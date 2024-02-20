@@ -16,6 +16,7 @@ import { useConnectUserToStoreMutation, useGetStoresQuery } from '../../store/qu
 import { IoClose } from 'react-icons/io5'
 import Loader from '../../components/elements/Loader'
 import { notification } from 'antd'
+import { userErrorsData } from '../../constants/errors'
 
 const schema = yup.object().shape({
   fullname: yup.string().required(),
@@ -90,30 +91,41 @@ const CreateCashier = () => {
       formData.append('phone_number', e.phone_number)
       formData.append('inn', e.inn)
       formData.append('password', e.password)
-      formData.append('user_avatar', file)
+      if(file){
+        formData.append('user_avatar', file)
+      }
 
-      const result = await createUser({
+      await createUser({
         token: localStorage.getItem('accessToken'),
         data: formData,
+      }).then(async (res) => {
+        if(!res.error) {
+          await connectUser({ data: {
+            user_id: res.data?.id,
+            branch_ids: [store?.storeObject?.id],
+          }, token: localStorage.getItem('accessToken')})
+
+          dispatch(setModal())
+          reset()
+          api.open({
+            message: 'Пользователь создан !',
+            duration: 3,
+          });
+        }else{
+          if(res.error.data.phone_number){
+            api.open({
+              message: userErrorsData.phone_number,
+              duration: 3,
+            })
+          }
+          if(res.error.data.email){
+            api.open({
+              message: userErrorsData.email,
+              duration: 3,
+            })
+          }
+        }
       })
-
-      if(result) {
-        await connectUser({
-          token: localStorage.getItem('accessToken'),
-          data: {
-            user_id: result?.data?.id,
-            branch_ids: [storeCash?.storeObject?.id],
-          },
-        })
-
-        dispatch(setModal(false))
-        reset()
-        setStore({name: ''})
-        api.open({
-          message: 'Пользователь создан !',
-          duration: 3,
-        });
-      }
     } catch (error) {
       console.log(error)
     }

@@ -11,6 +11,17 @@
     border-width: 2.5px 0px;
     border-style: solid;
     border-color: rgba(34, 36, 38, 0.15);
+
+    #active_btn{
+      pointer-events: all !important;
+      background: $app-main-color !important;
+      color: #fff;
+    }
+  }
+
+  &-title{
+    color: #33425B;
+    font-weight: 500;
   }
 
   &-save{
@@ -29,11 +40,6 @@
     pointer-events: none;
   }
 
-  #active_btn{
-    pointer-events: all !important;
-    background: $app-main-color !important;
-    color: #fff;
-  }
   
   &-exit{
     width: 38.44px;

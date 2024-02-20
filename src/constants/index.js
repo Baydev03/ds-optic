@@ -30,6 +30,7 @@ export const appRoutesPath = {
 
 export const modalTypes = {
   CREATE_PRODUCT_ALT_TYPE: 'create_product_alt_type',
+  CUSTOM_PRODUCT_INFO: 'custom_product_info',
   CREATE_CASH_DESIGN_TYPE: 'create_cash_design_type',
   CREATE_ADMIN_TYPE: 'create_admin_type',
   CREATE_CASHIER_TYPE: 'create_cashier_type',
