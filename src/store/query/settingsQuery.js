@@ -10,7 +10,7 @@ export const settingsQuery = createApi({
   endpoints: (builder) => ({
     getTaxes: builder.query({
       query: ({ token }) => ({
-        url: 'settings/taxes/',
+        url: 'settings/taxes/?limit=10000',
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -19,7 +19,7 @@ export const settingsQuery = createApi({
     }),
     getCountries: builder.query({
       query: ({ token }) => ({
-        url: 'settings/countries/',
+        url: 'settings/countries/?limit=10000',
         headers: {
           Authorization: `Bearer ${token}`,
         },

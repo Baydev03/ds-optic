@@ -10,7 +10,7 @@ export const usersQuery = createApi({
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: ({ token }) => ({
-        url: 'accounts/users/',
+        url: 'accounts/users/?limit=10000',
         headers: {
           Authorization: `Bearer ${token}`,
         },

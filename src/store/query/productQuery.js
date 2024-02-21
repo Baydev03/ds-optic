@@ -10,7 +10,7 @@ export const productQuery = createApi({
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: ({ token }) => ({
-        url: 'products/products',
+        url: 'products/products/?limit=100000',
         headers: {
           Authorization: `Bearer ${token}`,
         },
